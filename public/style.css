@@ -1,0 +1,92 @@
+div#cart-sign {
+    background-image: url("img/cart.jpeg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.cart-container {
+    justify-content: center;
+}
+div#cart-modal {
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    transition: opacity 1s, visibility 1s, top 0.5s;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 500px;
+    padding: 20px;
+    background-color: white;
+
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+div#cart-modal.visible {
+    opacity: 1;
+    visibility: visible;
+    top: 50%;
+}
+/*div#product-list table {
+    width: 100%;
+    position: relative;
+}
+div#product-list tr.product {
+    position: relative;
+    transition: opacity 1s;
+}*/
+div#product-list {
+    position: relative;
+    /*display: table;*/
+}
+div#product-list div.product { /*2nd*/
+    /*width: 100%;*/
+    float: initial;
+    position: relative;
+    transition: opacity 0.5s;
+    /*display: table-row;*/
+}
+/*div#product-list div.product > div {
+    display: table-cell;
+}*/
+div#cart-total {
+    display: flex;
+    justify-content: flex-end;
+    transform: rotateX(0grad);
+}
+
+div.product > div {
+    display: inline-block;
+}
+div.product {
+    width: 300px;
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: left;
+    margin: 20px;
+}
+div.product img {
+    width: 100%;
+    height: 200px;
+}
+button.button-buy {
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+.remove {
+    cursor: pointer;
+    background-color: crimson;
+    border-radius: 3px;
+}
+
+table, tr, td {
+    border: 1px solid black;
+}
