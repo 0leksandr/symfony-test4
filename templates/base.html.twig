@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-{#        <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">#}
+{#        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">#}
 {#        <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">#}
-{#        <script src="{{ asset('generals.js') }}"></script>#}
-{#        <script src="{{ asset('pagination.js') }}"></script>#}
+{#        <script src="{{ asset('js/generals.js') }}"></script>#}
+{#        <script src="{{ asset('js/pagination.js') }}"></script>#}
     </head>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
     </body>
-{#    <script src="{{ asset('cart.js') }}"></script>#}
+{#    <script src="{{ asset('js/cart.js') }}"></script>#}
 </html>
