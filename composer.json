@@ -2,10 +2,11 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.1",
+        "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "5.0.*",
         "symfony/console": "5.0.*",
         "symfony/dotenv": "5.0.*",
@@ -18,22 +19,25 @@
         "symfony/mailer": "5.0.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "5.0.*",
-        "symfony/orm-pack": "*",
+        "symfony/orm-pack": "^1.0.7",
         "symfony/process": "5.0.*",
         "symfony/security-bundle": "5.0.*",
-        "symfony/serializer-pack": "*",
+        "symfony/serializer-pack": "^1.0.2",
         "symfony/string": "5.0.*",
         "symfony/translation": "5.0.*",
-        "symfony/twig-pack": "*",
+        "symfony/twig-pack": "^1.0.0",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
+        "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
-        "symfony/debug-pack": "*",
+        "roave/security-advisories": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "symfony/debug-pack": "^1.0.7",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/profiler-pack": "^1.0.4",
+        "symfony/test-pack": "^1.0.6"
     },
     "config": {
         "preferred-install": {
@@ -63,7 +67,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

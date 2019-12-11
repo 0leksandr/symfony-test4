@@ -1,5 +1,5 @@
 div#cart-sign {
-    background-image: url("img/cart.jpeg");
+    background-image: url("../../public/img/cart.jpeg");
     background-size: cover;
     width: 70px;
     height: 70px;
@@ -89,4 +89,9 @@ button.button-buy {
 
 table, tr, td {
     border: 1px solid black;
+}
+
+/* bootstrap examples */
+.container {
+    padding: 80px 120px;
 }

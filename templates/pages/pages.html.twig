@@ -1,0 +1,4 @@
+{# @var pages \App\Entity\PageButton[] #}
+{% for page in pages %}
+    {% include 'pages/page_button.html.twig' with {'page_button': page} %}
+{% endfor %}

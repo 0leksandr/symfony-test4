@@ -1,0 +1,12 @@
+{% if page_button.link %}
+    <a class="btn btn-primary m-1 page-item"
+       href="?page={{ page_button.link.pageNr }}"
+{#       onclick="loadPage({{ offset }}, {{ products_per_page }}); return false;"#}
+    >
+        {{ page_button.text }}
+    </a>
+{% else %}
+    <span class='btn btn-secondary border-dark m-1 page-item'>
+        {{ page_button.text }}
+    </span>
+{% endif %}

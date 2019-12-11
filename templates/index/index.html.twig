@@ -3,18 +3,26 @@
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {% include 'cart.html.twig' %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <br><br><br>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/nezhraba/_/localhost/symfony-test/test4/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/nezhraba/_/localhost/symfony-test/test4/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% include 'pages/pages.html.twig' with {'pages': pages} %}
+
+    <br><br><br>
+
+    {% for product in products %}
+        {# @var product \App\Entity\Product #}
+        <div class='product'>
+            <a href="{{ path('product', {'product': product.id}) }}">
+                <img src='{{ product.image }}' alt='{{ product.name }}'>
+                <div class='product-name'>{{ product.name }}</div>
+                <div class='product-price'>
+                    <span class='amount'>{{ product.price }}</span>
+                    <span class='currency'>$</span>
+                </div>
+            </a>
+            <button class='button-buy'>Buy</button>
+        </div>
+    {% endfor %}
 {% endblock %}

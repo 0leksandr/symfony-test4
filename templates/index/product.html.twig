@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div class="container">
+        {{ product.name }}, {{ product.price }}$
+        <img src="/{{ product.image }}" alt="{{ product.name }}" width="300px">
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#feedback">Feedback</a></li>
+            <li><a data-toggle="tab" href="#characteristics">Characteristics</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="feedback" class="tab-pane fade in active">
+                {{ form_start(feedback_form) }}
+                {{ form_widget(feedback_form) }}
+                {{ form_end(feedback_form) }}
+
+                {% for feedback in product.feedbacks %}
+                    <div>
+                        <div>{{ feedback.username }}</div>
+                        <div>{{ feedback.time|date('Y-m-d H:i:s') }}</div>
+                        <div>{{ feedback.text }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="characteristics" class="tab-pane fade">
+                <h2>Chandler Bing, Guitarist</h2>
+                <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any
+                    more pleased?</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
