@@ -15,5 +15,6 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 import './cart';
 import './generals';
 import './pagination';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import ''
+import '../../node_modules/jquery/dist/jquery.js';
+import '../../node_modules/bootstrap/dist/js/bootstrap.js';
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';

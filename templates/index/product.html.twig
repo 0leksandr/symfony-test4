@@ -28,9 +28,12 @@
                 {% endfor %}
             </div>
             <div id="characteristics" class="tab-pane fade">
-                <h2>Chandler Bing, Guitarist</h2>
-                <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any
-                    more pleased?</p>
+                {% for characteristicValue in product.characteristicValues %}
+                    <div>
+                        <div>{{ characteristicValue.characteristic.name }}</div>
+                        <div>{{ characteristicValue.value }}</div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

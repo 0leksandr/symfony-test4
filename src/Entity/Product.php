@@ -133,6 +133,9 @@ class Product
         return $this;
     }
 
+    /**
+     * @return Collection|CharacteristicValue[]
+     */
     public function getCharacteristicValues(): Collection
     {
         return $this->characteristicValues;
