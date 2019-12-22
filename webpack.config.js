@@ -1,4 +1,4 @@
-var Encore = require('@symfony/webpack-encore');
+let Encore = require('@symfony/webpack-encore');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -70,6 +70,11 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
+
+    .copyFiles({
+        from: './assets/img',
+        to: 'img/[path][name].[ext]'
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
