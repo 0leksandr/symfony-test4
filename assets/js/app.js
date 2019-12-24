@@ -13,7 +13,5 @@ require('../css/app.css');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 import './cart';
-import './generals';
 import './pagination';
-import '../../node_modules/jquery/dist/jquery.js';
-import '../../node_modules/bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/js/bootstrap.min'

@@ -1,5 +1,9 @@
 'use strict';
 
+import foreach from './generals/foreach';
+import animate from './generals/animate';
+import $ from 'jquery';
+
 let cart = {};
 
 function toggleCart() {
@@ -35,16 +39,20 @@ function drawCart() {
                            onchange="changeQuantity('${product.name}', this.value)"
                     >
                 </div>
-                <div class="remove" onclick="remove(this)">X</div>
+                <div class="remove">X</div>
             </div>
         `;
     });
     document.querySelector('#product-list').innerHTML = cartContent;
     updateTotal();
+
+    $('.remove').on('click', function () {
+        remove(this);
+    });
 }
 function updateTotal() {
     let total = 0;
-    foreach(cart, function (product) {
+    foreach(cart, product => {
         total += product.price * product.quantity;
     });
     total = total.toString();
@@ -93,3 +101,5 @@ function remove(button) {
         time
     );
 }
+
+$('#cart-sign').on('click', toggleCart);
