@@ -24,9 +24,9 @@ class Product
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image;
+    private ?string $image;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
@@ -83,7 +83,7 @@ class Product
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 

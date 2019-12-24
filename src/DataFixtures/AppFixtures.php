@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
         );
         $product2 = $this->addProduct($manager, 'Asus notebook', 'img/asus.jpg', 150);
         for ($ii = 3; $ii < 50; $ii++) {
-            $this->addProduct($manager, "Notebook №{$ii}", 'img/no-image.jpg', 100 + $ii);
+            $this->addProduct($manager, "Notebook №{$ii}", null, 100 + $ii);
         }
 
         $processor = (new Characteristic())->setName('Processor');
@@ -51,7 +51,7 @@ class AppFixtures extends Fixture
     private function addProduct(
         ObjectManager $manager,
         string $name,
-        string $image,
+        ?string $image,
         float $price
     ): Product {
         $product = (new Product())
