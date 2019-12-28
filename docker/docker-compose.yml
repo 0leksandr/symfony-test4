@@ -1,0 +1,41 @@
+version: "3.2"
+services:
+  php:
+    build: './php/'
+    container_name: test4-php
+    networks:
+      - backend
+    ports:
+      - '8000:8000'
+    volumes:
+      - ../:/app/
+    working_dir: /app/
+#  apache:
+#    build: './apache/'
+#    container_name: test4-apache
+#    depends_on:
+#      - php
+#      - mysql
+#    networks:
+#      - frontend
+#      - backend
+#    ports:
+#      - '80:80'
+#    volumes:
+#      - ../public/:/var/www/html/
+#    working_dir: /var/www/html/
+  mysql:
+    image: mysql:5.7.28
+    container_name: test4-mysql
+    networks:
+      - backend
+    environment:
+      - TZ=Europe/Kiev
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testpassword
+      - MYSQL_DATABASE=testdb
+networks:
+  frontend:
+  backend:

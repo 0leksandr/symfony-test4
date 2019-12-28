@@ -7,7 +7,7 @@
 
     <div class="container">
         {{ product.name }}, {{ product.price }}$
-        <img src="/{{ product.image }}" alt="{{ product.name }}" width="300px">
+        <img src="{{ asset('/build/' ~ (product.image ?: 'img/no-image.png')) }}" alt="{{ product.name }}" width="300px">
 
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#feedback">Feedback</a></li>

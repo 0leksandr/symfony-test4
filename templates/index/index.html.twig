@@ -15,7 +15,7 @@
         {# @var product \App\Entity\Product #}
         <div class='product'>
             <a href="{{ path('product', {'product': product.id}) }}">
-                <img src='{{ asset('build/' ~ (product.image ?: 'img/no-image.png')) }}' alt='{{ product.name }}'>
+                <img src='{{ asset('/build/' ~ (product.image ?: 'img/no-image.png')) }}' alt='{{ product.name }}'>
                 <div class='product-name'>{{ product.name }}</div>
                 <div class='product-price'>
                     <span class='amount'>{{ product.price }}</span>
