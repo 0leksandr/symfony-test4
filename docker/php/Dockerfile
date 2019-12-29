@@ -3,3 +3,9 @@ RUN apk update; \
     apk upgrade;
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 RUN apk add composer yarn
+
+#RUN apk add zlib-dev icu-dev g++
+RUN apk add icu-dev
+RUN docker-php-ext-configure intl && \
+    docker-php-ext-install intl
+RUN adduser -D _www
