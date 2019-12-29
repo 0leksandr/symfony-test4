@@ -1,3 +1,3 @@
 #!/bin/sh
-#./bin/parallel_commands.sh "./bin/symfony.sh serve" "yarn encore dev --watch"
+#"$(dirname "$0")"/parallel_commands.sh "$(dirname "$0")/symfony.sh serve" "yarn encore dev --watch"
 yarn encore dev --watch
