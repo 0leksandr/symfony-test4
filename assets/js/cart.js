@@ -32,13 +32,12 @@ function drawCart() {
                     <span class="amount">${product.price}</span>
                     <span class="currency">$</span>
                 </div>
-                <div class="quantity">
-                    <input type="number"
-                           value="${product.quantity}"
-                           min="1"
-                           onchange="changeQuantity('${product.name}', this.value)"
-                    >
-                </div>
+                <input class="quantity"
+                       type="number"
+                       value="${product.quantity}"
+                       min="1"
+                       data-product-name="${product.name}"
+                >
                 <div class="remove">X</div>
             </div>
         `;
@@ -48,6 +47,9 @@ function drawCart() {
 
     $('.remove').on('click', function () {
         remove(this);
+    });
+    $('input.quantity').on('change', function () {
+        changeQuantity($(this).data('product-name'), this.value);
     });
 }
 function updateTotal() {
