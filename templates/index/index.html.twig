@@ -3,26 +3,31 @@
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}
-    {% include 'cart.html.twig' %}
+    <div class="grid-container">
+        <div class="header">Header</div>
+        <div class="left"></div>
+        <div class="center">
+            {% include 'cart.html.twig' %}
 
-    <br><br><br>
-
-    {% include 'pages/pages.html.twig' with {'pages': pages} %}
-
-    <br><br><br>
-
-    {% for product in products %}
-        {# @var product \App\Entity\Product #}
-        <div class='product'>
-            <a href="{{ path('product', {'product': product.id}) }}">
-                <img src='{{ asset('/build/' ~ (product.image ?: 'img/no-image.png')) }}' alt='{{ product.name }}'>
-                <div class='product-name'>{{ product.name }}</div>
-                <div class='product-price'>
-                    <span class='amount'>{{ product.price }}</span>
-                    <span class='currency'>$</span>
+            {% for product in products %}
+                {# @var product \App\Entity\Product #}
+                <div class='product'>
+                    <a href="{{ path('product', {'product': product.id}) }}">
+                        <img src='{{ asset('/build/' ~ (product.image ?: 'img/no-image.png')) }}'
+                             alt='{{ product.name }}'>
+                        <div class='product-name'>{{ product.name }}</div>
+                        <div class='product-price'>
+                            <span class='amount'>{{ product.price }}</span>
+                            <span class='currency'>$</span>
+                        </div>
+                    </a>
+                    <button class='button-buy'>Buy</button>
                 </div>
-            </a>
-            <button class='button-buy'>Buy</button>
+            {% endfor %}
         </div>
-    {% endfor %}
+        <div class="pages">
+            {% include 'pages/pages.html.twig' with {'pages': pages} %}
+        </div>
+        <div class="right"></div>
+    </div>
 {% endblock %}

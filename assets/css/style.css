@@ -1,3 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header'
+        'left   center center center right'
+        'left   pages  pages  pages  right';
+}
+.left { grid-area: left; }
+.center { grid-area: center; }
+.pages { grid-area: pages; }
+.right { grid-area: right; }
+
 div#cart-sign {
     background-image: url("../img/cart.jpeg");
     background-size: cover;
@@ -89,9 +101,4 @@ button.button-buy {
 
 table, tr, td {
     border: 1px solid black;
-}
-
-/* bootstrap examples */
-.container {
-    padding: 80px 120px;
 }
