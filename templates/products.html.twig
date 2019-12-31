@@ -1,0 +1,16 @@
+{# @var products \App\Entity\Product[] #}
+
+{% for product in products %}
+    <div class='product'>
+        <a href="{{ path('product', {'product': product.id}) }}">
+            <img src='{{ asset('/build/' ~ (product.image ?: 'img/no-image.png')) }}'
+                 alt='{{ product.name }}'>
+            <div class='product-name'>{{ product.name }}</div>
+            <div class='product-price'>
+                <span class='amount'>{{ product.price }}</span>
+                <span class='currency'>$</span>
+            </div>
+        </a>
+        <button class='button-buy'>Buy</button>
+    </div>
+{% endfor %}

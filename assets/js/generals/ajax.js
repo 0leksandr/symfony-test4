@@ -1,8 +1,8 @@
 'use strict';
 
-export default function (url, callback) {
+export default function (method, url, callback) {
     const Http = new XMLHttpRequest();
-    Http.open("GET", url);
+    Http.open(method.toUpperCase(), url);
     Http.send();
 
     Http.onreadystatechange = function () {

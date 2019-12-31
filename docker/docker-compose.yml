@@ -3,23 +3,23 @@ services:
   php:
     build: './php/'
     container_name: test4-php
-#    ports:
-#      - '80:8000'
+    ports:
+      - '80:8000'
     volumes:
       - ../:/app/
     working_dir: /app/
-  apache:
-    build: './apache/'
-    container_name: test4-apache
-    depends_on:
-      - php
-      - mysql
-    ports:
-      - '80:80'
-    volumes:
-      - ../public/:/var/www/html/
-      - ../var/log/apache.log:/var/log/apache.log
-    working_dir: /var/www/html/
+#  apache:
+#    build: './apache/'
+#    container_name: test4-apache
+#    depends_on:
+#      - php
+#      - mysql
+#    ports:
+#      - '80:80'
+#    volumes:
+#      - ../public/:/var/www/html/
+#      - ../var/log/apache.log:/var/log/apache.log
+#    working_dir: /var/www/html/
   mysql:
     image: mysql:5.7.28
     container_name: test4-mysql

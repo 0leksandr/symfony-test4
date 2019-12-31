@@ -7,7 +7,7 @@
 }
 .left { grid-area: left; }
 .center { grid-area: center; }
-.pages { grid-area: pages; }
+#pages { grid-area: pages; }
 .right { grid-area: right; }
 
 div#cart-sign {

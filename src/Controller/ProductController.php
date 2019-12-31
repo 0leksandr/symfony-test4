@@ -24,7 +24,7 @@ class ProductController extends AbstractController
     public function __construct(ProductRepository $productRepository, Pager $pager)
     {
         $this->productRepository = $productRepository;
-        $this->pager = $pager;
+        $this->pager             = $pager;
     }
 
     /**
@@ -32,22 +32,13 @@ class ProductController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function indexAction(Request $request): Response
     {
         $pageNr = $request->query->get('page', 1);
-        $products = $this->productRepository->findAll();
-        $nrPages  = (int)ceil(count($products) / self::PRODUCTS_PER_PAGE);
-
-        /** @var Product[] $products */
-        $products = array_slice(
-            $products,
-            ($pageNr - 1) * self::PRODUCTS_PER_PAGE,
-            self::PRODUCTS_PER_PAGE
-        );
 
         return $this->render('index/index.html.twig', [
-            'products' => $products,
-            'pages'    => $this->pager->pages($pageNr, $nrPages),
+            'products' => $this->products($pageNr),
+            'pages'    => $this->pager->pages($pageNr, $this->nrPages()),
         ]);
     }
 
@@ -80,5 +71,48 @@ class ProductController extends AbstractController
                 'feedback_form' => $feedbackForm->createView(),
             ]
         );
+    }
+
+    /**
+     * @Route("/page/{pageNr}", name="page", methods={"POST"})
+     * @param int $pageNr
+     * @return Response
+     */
+    public function pageAction(int $pageNr): Response
+    {
+        return $this->render('products.html.twig', ['products' => $this->products($pageNr)]);
+    }
+
+    /**
+     * @Route("/pages/{pageNr}", name="pages", methods={"POST"})
+     * @param int $pageNr
+     * @return Response
+     */
+    public function pageButtonsAction(int $pageNr): Response
+    {
+        return $this->render(
+            'pages/pages.html.twig',
+            ['pages' => $this->pager->pages($pageNr, $this->nrPages())]
+        );
+    }
+
+    /**
+     * @param int $pageNr
+     * @return Product[]
+     */
+    private function products(int $pageNr): array
+    {
+        return $this
+            ->productRepository
+            ->createQueryBuilder('product')
+            ->setMaxResults(self::PRODUCTS_PER_PAGE)
+            ->setFirstResult(($pageNr - 1) * self::PRODUCTS_PER_PAGE)
+            ->getQuery()
+            ->execute();
+    }
+
+    private function nrPages(): int
+    {
+        return (int)ceil($this->productRepository->count([]) / self::PRODUCTS_PER_PAGE);
     }
 }

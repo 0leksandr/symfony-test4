@@ -77,7 +77,7 @@ function changeQuantity(productName, quantity) {
     updateTotal();
 }
 
-function updateButtons() {
+export default function updateButtons() {
     document.querySelectorAll('.button-buy').forEach(function (button) {
         button.onclick = function () {
             let product = button.parentNode;
