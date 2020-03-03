@@ -1,2 +1,2 @@
 #!/bin/sh
-docker exec -it test4-php sh
+docker exec -it test4-php sh "$@"
