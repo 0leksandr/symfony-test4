@@ -12,6 +12,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
+    private const NR_PRODUCTS = 10;
+
     public function load(ObjectManager $manager): void
     {
         $product1 = $this->addProduct($manager, 'Acer notebook', 'img/acer.jpeg', 100);
@@ -22,7 +24,7 @@ class AppFixtures extends Fixture
                 ->setText('blah')
         );
         $product2 = $this->addProduct($manager, 'Asus notebook', 'img/asus.jpg', 150);
-        for ($ii = 3; $ii < 50; $ii++) {
+        for ($ii = 3; $ii <= self::NR_PRODUCTS; $ii++) {
             $this->addProduct($manager, "Notebook №{$ii}", null, 100 + $ii);
         }
 

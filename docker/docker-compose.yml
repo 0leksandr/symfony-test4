@@ -31,5 +31,7 @@ services:
       - MYSQL_USER=testuser
       - MYSQL_PASSWORD=testpassword
       - MYSQL_DATABASE=testdb
+    ports:
+      - 3306:3306
     volumes:
       - ../var/mysql:/var/lib/mysql
